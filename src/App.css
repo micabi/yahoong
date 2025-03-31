@@ -1,0 +1,74 @@
+@import url('tailwindcss');
+
+:root {
+  --font-gothic:
+    'Hiragino Kaku Gothic Pro', yugothic, meiryo, 'Lucida Grande', verdana, helvetica, arial, 'MS PGothic', sans-serif;
+}
+
+#root {
+  width: 1480px;
+  max-width: 1480px;
+  padding: 2rem;
+  margin: 0 auto;
+  font-family: var(--font-gothic);
+  text-align: center;
+}
+
+a {
+  color: #213547;
+  text-decoration: underline;
+}
+
+a:hover,
+a:focus,
+a:visited {
+  color: #646cff;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  transition: filter 300ms;
+  will-change: filter;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* .item {
+  width: calc(100% / 4);
+} */
+
+/* .item.active,
+.item.active span {
+  color: red;
+} */
