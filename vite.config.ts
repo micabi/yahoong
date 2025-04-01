@@ -11,7 +11,7 @@ export default defineConfig( ( { mode } ) => {
       react(),
       tailwindcss(),
     ],
-    base: '/yahoong/',
+    // base: '/yahoong/',
     esbuild: {
       banner: '/*! licenses: /assets/vendor.licenses.txt */',
       legalComments: 'external',

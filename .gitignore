@@ -23,3 +23,6 @@ public/vite.svg
 *.njsproj
 *.sln
 *.sw?
+
+# Local env files
+.env
