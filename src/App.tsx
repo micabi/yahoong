@@ -1,10 +1,10 @@
-import React, { JSX, useState } from 'react';
+import React, { useState } from 'react';
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css';
 import Table from './table';
 
-function App(): JSX.Element {
+function App(): React.JSX.Element {
   const [count, setCount] = useState(0);
   const [text, setText] = useState('');
 
@@ -49,13 +49,15 @@ function App(): JSX.Element {
         Click on the Vite and React logos to learn more
       </p> */}
 
-      <h1 className="mb-6 !text-base">2025年3月7日改定版</h1>
+      <h1 className="mb-6 !text-base">2025年4月3日改定版</h1>
 
       <div className="mb-8">
         <input
           type="text"
-          placeholder="絞り込み"
-          onChange={(e: React.ChangeEvent<HTMLInputElement>): void => { changeText(e); }}
+          placeholder="検索にヒットしたら出品できるブランドです"
+          onChange={(e: React.ChangeEvent<HTMLInputElement>): void => {
+            changeText(e);
+          }}
           className="w-lg rounded-md p-2 outline-2 outline-slate-300"
         />
         <span
@@ -66,7 +68,12 @@ function App(): JSX.Element {
         </span>
       </div>
 
-      <Table text={text} handleCount={(count: number): void => { handleCount(count); }} />
+      <Table
+        text={text}
+        handleCount={(count: number): void => {
+          handleCount(count);
+        }}
+      />
     </>
   );
 }

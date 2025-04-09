@@ -1,41 +1,46 @@
-import { JSX } from 'react';
+import React from 'react';
 import type { Brands } from './modules/lists';
 import uniqueBrandlist from './modules/lists';
 import hiraToKana from './modules/hira2kana';
 import './App.css';
 
-function Table(props: { text: string; handleCount: (count: number) => void }): JSX.Element {
+function Table(props: { text: string; handleCount: (count: number) => void }): React.JSX.Element {
   let display: boolean = true;
   let showurl: boolean = false;
   const totalArray: number[] = []; // 文字が含まれているかどうかの判定を格納する配列 (-1: 含まれていない, 0以上: 含まれている)
 
-  const listitems: JSX.Element[] = uniqueBrandlist.map((brand: Brands): JSX.Element => {
+  const listitems: React.JSX.Element[] = uniqueBrandlist.map((brand: Brands): React.JSX.Element => {
+    // 入力された文字列が含まれているかいないかインデックスを格納
     if (props.text !== '') {
       totalArray.push(brand.en.toLowerCase().indexOf(props.text.toLowerCase()));
       totalArray.push(brand.ja.indexOf(hiraToKana(props.text)));
     }
 
+    // 入力された文字列が(英名・和名に)含まれていたら表示
     if (
       (props.text !== '' && brand.en.toLowerCase().indexOf(props.text.toLowerCase()) !== -1) ||
       (props.text !== '' && brand.ja.indexOf(hiraToKana(props.text)) !== -1)
     ) {
       display = true;
     } else if (props.text === '') {
+      // 入力がなければ非表示
       display = true;
     } else {
+      // 含まれていなければ非表示
       display = false;
     }
 
+    // オブジェクトにURLがあれば表示
     if (brand.url !== undefined) {
       showurl = true;
     } else {
       showurl = false;
     }
-    function items(): JSX.Element {
+    function items(): React.JSX.Element {
       if (showurl) {
         return (
           <>
-            <a href={brand.url} rel="noreferrer noopener" target="_blank">
+            <a href={brand.url} rel="noreferrer noopener" target="_blank" className="external-link">
               {brand.en}
             </a>
             <span className={`block text-xs text-slate-400 ${display ? '' : 'hidden'}`}>{brand.ja}</span>

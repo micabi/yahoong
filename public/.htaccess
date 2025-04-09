@@ -1,8 +1,8 @@
 # <IfModule mod_rewrite.c>
 #   RewriteEngine On
-#   RewriteBase /yahoong/
+#   RewriteBase /yahoolist/
 #   RewriteRule ^index\.html$ - [L]
 #   RewriteCond %{REQUEST_FILENAME} !-f
 #   RewriteCond %{REQUEST_FILENAME} !-d
-#   RewriteRule . /yahoong/index.html [L]
+#   RewriteRule . /yahoolist/index.html [L]
 # </IfModule>
